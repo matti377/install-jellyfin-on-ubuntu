@@ -76,3 +76,4 @@ sudo systemctl enable jellyfin
 
 sudo ufw allow (port)
 
+sudo systemctl status jellyfin
