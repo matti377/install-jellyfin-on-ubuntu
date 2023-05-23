@@ -66,8 +66,10 @@ EOF
 #update
 sudo apt update
 
+#install jellyfin
 sudo apt install jellyfin
 
+#start
 sudo systemctl start jellyfin
 
 sudo systemctl enable jellyfin
