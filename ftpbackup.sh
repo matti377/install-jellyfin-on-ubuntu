@@ -35,19 +35,25 @@ echo "$tailscale_ip" > "$file_path"
 echo "Tailscale IP address saved to $file_path."
 
 #set up jellyfin
+
+#remove old jellyfin files if existant
 sudo rm /etc/apt/sources.list.d/jellyfin.list
 
+#add jellyfin repositories
 curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
-
 wget -O- https://repo.jellyfin.org/install-debuntu.sh | sudo bash
 
+#install dependencies
 sudo apt install curl gnupg
 
+#enable the universe repository
 sudo add-apt-repository universe
 
+#Download the GPG signing key
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://repo.jellyfin.org/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
 
+#Add a repository configuration at /etc/apt/sources.list.d/jellyfin.sources
 cat <<EOF | sudo tee /etc/apt/sources.list.d/jellyfin.sources
 Types: deb
 URIs: https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release )
@@ -57,6 +63,7 @@ Architectures: $( dpkg --print-architecture )
 Signed-By: /etc/apt/keyrings/jellyfin.gpg
 EOF
 
+#update
 sudo apt update
 
 sudo apt install jellyfin
