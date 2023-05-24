@@ -81,4 +81,7 @@ sudo ufw allow (port)
 #check status of jellyfin
 sudo systemctl status jellyfin
 
-echo "Jellyfin is up and running please visit $tailscale_ip to continue the setup process"
+
+echo ""Jellyfin is up and running please visit $tailscale_ip to continue the setup process"
+" > "$file_path"
+sudo cat $file_path
