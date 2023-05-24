@@ -4,7 +4,7 @@ How to execute this script:
 
 clone the directory:
 
-git clone 
+git clone https://github.com/matti377/install-jellyfin-on-ubuntu.git
 
 enter the directory
 cd install-jellyfin-on-ubuntu
