@@ -69,11 +69,16 @@ sudo apt update
 #install jellyfin
 sudo apt install jellyfin
 
-#start
+#start jellyfin
 sudo systemctl start jellyfin
 
+#enable jellyfin
 sudo systemctl enable jellyfin
 
+#allow jellyfin port
 sudo ufw allow (port)
 
+#check status of jellyfin
 sudo systemctl status jellyfin
+
+echo "Jellyfin is up and running please visit $tailscale_ip to continue the setup process"
